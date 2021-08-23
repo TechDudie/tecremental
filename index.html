@@ -12,7 +12,8 @@
     <div id="main">
     <div id="obtain" style="float:left; margin:0; width:50%;">
       <h2>Obtain Resources</h2>
-      <button class="button" onclick="transistor++;alert(transistor);">Manufacture Transistor</button>
+      <h3 id="transistor">Transistors: 0</h3>
+      <button class="button" onclick="itransistor()">Manufacture Transistor</button>
     </div>
     <div id="craft" style="float:left; margin:0;width:25%;">
       <h3>Craft Items<h3>
@@ -23,6 +24,12 @@
     </div>
     <script src="javascript">
       var transistor = 0;
+      function itransistor() {
+        transistor++;
+      }
+      while (true) {
+        document.getElementById("transistor").innerHTML = "Transistors: " + toString(transistor);
+      }
     </script>
   </body>
 </html>
