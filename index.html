@@ -24,12 +24,13 @@
     </div>
     <script src="javascript">
       var transistor = 0;
-      function itransistor() {
+      function itransistor() { // increment transistor counter function
         transistor++;
       }
-      while (true) {
+      function utransistor() { // update transistor counter function
         document.getElementById("transistor").innerHTML = "Transistors: " + toString(transistor);
       }
+      var transistorIntervalID = setInterval(utransistor, 1);
     </script>
   </body>
 </html>
