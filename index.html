@@ -12,8 +12,8 @@
     <div id="main">
     <div id="obtain" style="float:left; margin:0; width:25%;">
       <h3>Obtain Resources</h3>
-      <h3 id="money">Money: 0</h3>
-      <h3 id="transistor">Transistors: 0</h3>
+      <h3 id="money">Error</h3>
+      <h3 id="transistor">Error</h3>
       <button class="button" onclick="itransistor();">Manufacture Transistor</button>
     </div>
     <div id="craft" style="float:left; margin:0;width:25%;">
@@ -22,13 +22,19 @@
     <div id="sell" style="float:left; margin:0;width:25%;">
       <h3>Sell Items<h3>
     </div>
-    <div id="buildings" style="float:left; margin:0;width:25%">
-      <h3>Buy Buildings</h3>
+    <div id="items" style="float:left; margin:0;width:25%">
+      <h3>Buy Items and Buildings</h3>
     </div>
     </div>
     <script>
-      var money = 0;
+      var money = 100;
       var transistor = 0;
+      var CPU = new Object();
+      CPU["breadboard"] = 0;
+      var earn = new Object();
+      earn["breadboard"] = 10;
+      var material = new Object();
+      material["breadboard"] = 0;
       function itransistor() { // increment transistor counter function
         transistor++;
       }
