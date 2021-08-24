@@ -26,15 +26,11 @@
       var transistor = 0;
       function itransistor() { // increment transistor counter function
         transistor++;
-        alert("debug.1")
       }
       function utransistor() { // update transistor counter function
         document.getElementById("transistor").innerHTML = "Transistors: " + transistor.toString();
-        alert(transistor.toString());
       }
-      alert("debug.3")
       var transistorIntervalID = setInterval(utransistor, 1);
-      alert("debug.4")
     </script>
   </body>
 </html>
