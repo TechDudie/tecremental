@@ -49,9 +49,11 @@
         document.getElementById("transistor").innerHTML = "Transistors: " + transistor.toString();
       }
       function cbreadboard() {
-        transistor -= cost["breadboard"];
-        material["breadboard"] -= 1;
-        CPU["breadboard"] += 1;
+        if (transistor >= cost["breadboard"] && material["breadboard"] > 0) {
+          transistor -= cost["breadboard"];
+          material["breadboard"] -= 1;
+          CPU["breadboard"] += 1;
+        }
       }
       function ubreadboard() { // update breadboard counter function
         document.getElementById("breadboard").innerHTML = "Breadboard CPUs: " + CPU["breadboard"].toString();
