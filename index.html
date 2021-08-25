@@ -18,6 +18,7 @@
     </div>
     <div id="craft" style="float:left; margin:0;width:25%;">
       <h3>Craft Items<h3>
+      <button class="button" onclick="cbreadboard();">Craft Breadboard CPU</button>
     </div>
     <div id="sell" style="float:left; margin:0;width:25%;">
       <h3>Sell Items<h3>
@@ -31,6 +32,8 @@
       var transistor = 0;
       var CPU = new Object();
       CPU["breadboard"] = 0;
+      var cost = new Object();
+      cost["breadboard"] = 100;
       var earn = new Object();
       earn["breadboard"] = 10;
       var material = new Object();
@@ -43,6 +46,11 @@
       }
       function utransistor() { // update transistor counter function
         document.getElementById("transistor").innerHTML = "Transistors: " + transistor.toString();
+      }
+      function cbreadboard() {
+        transistor -= cost["breadboard"];
+        material["breadboard"] -= 1;
+        CPU["breadboard"] += 1;
       }
       var moneyIntervalID = setInterval(umoney, 1);
       var transistorIntervalID = setInterval(utransistor, 1);
