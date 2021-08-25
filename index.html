@@ -18,6 +18,7 @@
     </div>
     <div id="craft" style="float:left; margin:0;width:25%;">
       <h3>Craft Items<h3>
+      <h3 id="breadboard">Error</h3>
       <button class="button" onclick="cbreadboard();">Craft Breadboard CPU</button>
     </div>
     <div id="sell" style="float:left; margin:0;width:25%;">
@@ -52,8 +53,12 @@
         material["breadboard"] -= 1;
         CPU["breadboard"] += 1;
       }
+      function ubreadboard() { // update breadboard counter function
+        document.getElementById("breadboard").innerHTML = "Breadboard CPUs: " + CPU["breadboard"].toString();
+      }
       var moneyIntervalID = setInterval(umoney, 1);
       var transistorIntervalID = setInterval(utransistor, 1);
+      var breadboardIntervalID = setInterval(ubreadboard, 1);
     </script>
   </body>
 </html>
