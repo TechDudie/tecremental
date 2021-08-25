@@ -18,7 +18,7 @@
     </div>
     <div id="craft" style="float:left; margin:0;width:25%;">
       <h3>Craft Items<h3>
-      <h3 id="breadboard">Error</h3>
+      <h3 id="breadboard-cpu">Error</h3>
       <button class="button" onclick="cbreadboard();">Craft Breadboard CPU</button>
     </div>
     <div id="sell" style="float:left; margin:0;width:25%;">
@@ -26,6 +26,8 @@
     </div>
     <div id="items" style="float:left; margin:0;width:25%">
       <h3>Buy Items and Buildings</h3>
+      <h3 id="breadboard">Error</h3>
+      <button class="button" onclick="bbreadboard();">Buy Breadboard</button>
     </div>
     </div>
     <script>
@@ -48,7 +50,7 @@
       function utransistor() { // update transistor counter function
         document.getElementById("transistor").innerHTML = "Transistors: " + transistor.toString();
       }
-      function cbreadboard() {
+      function cbreadboard() { // craft breadboard CPU function
         if (transistor >= cost["breadboard"] && material["breadboard"] > 0) {
           transistor -= cost["breadboard"];
           material["breadboard"] -= 1;
@@ -56,7 +58,13 @@
         }
       }
       function ubreadboard() { // update breadboard counter function
-        document.getElementById("breadboard").innerHTML = "Breadboard CPUs: " + CPU["breadboard"].toString();
+        document.getElementById("breadboard-cpu").innerHTML = "Breadboard CPUs: " + CPU["breadboard"].toString();
+      }
+      function bbreadboard() { // buy breadboard function
+        if (money =< 10) {
+          money -= 10;
+          material["breadboard"] += 1;
+        }
       }
       var moneyIntervalID = setInterval(umoney, 1);
       var transistorIntervalID = setInterval(utransistor, 1);
