@@ -9,32 +9,36 @@
   <body>
     <noscript>Javascript is REQUIRED for this game.</noscript>
     <h1>Tecremental</h1>
-    <div id="main" style="float:left; margin:0; height:75%;">
-    <div id="obtain" style="float:left; margin:0; width:25%;">
+    <div id="main" style="float:left; margin:0; border-style: solid;">
+    <div id="obtain" style="float:left; margin:0; width:20%; border-style: solid;">
       <h3>Obtain Resources</h3>
       <h3 id="money">Error</h3>
       <h3 id="transistor">Error</h3>
       <button class="button" onclick="itransistor();">Manufacture Transistor</button>
     </div>
-    <div id="craft" style="float:left; margin:0;width:25%;">
+    <div id="craft" style="float:left; margin:0 ;width:20%; border-style: solid;">
       <h3>Craft Items<h3>
       <h3 id="breadboard-cpu">Error</h3>
       <button class="button" onclick="cbreadboard();">Craft Breadboard CPU</button>
     </div>
-    <div id="sell" style="float:left; margin:0;width:25%;">
+    <div id="sell" style="float:left; margin:0; width:20%; border-style: solid;">
       <h3>Sell Items<h3>
       <button class="button" onclick="sbreadboard();">Sell Breadboard CPU</button>
     </div>
-    <div id="items" style="float:left; margin:0;width:25%">
+    <div id="items" style="float:left; margin:0; width:20% border-style: solid;">
       <h3>Buy Items and Buildings</h3>
       <h3 id="breadboard">Error</h3>
       <button class="button" onclick="bbreadboard();">Buy Breadboard</button>
     </div>
+    <div id="unlocked" style="float:left; margin:0; width:20% border-style: solid;">
+      <h3>Processors Unlocked</h3>
+      <h3 id="processors">Error</h3>
+      <button class="button" onclick="unlock();">Unlock 6502</button>
     </div>
-    <br>
-    <h3>Processors Unlocked</h3>
+    </div>
     <script>
       var money = 100;
+      var factor = 10;  // "earn[key] / factor" temporary"
       var transistor = 0;
       var CPU = new Object();
       CPU["breadboard"] = 0;
@@ -57,24 +61,27 @@
         document.getElementById("breadboard-cpu").innerHTML = "Breadboard CPUs: " + CPU["breadboard"].toString();
         document.getElementById("breadboard").innerHTML = "Breadboards: " + material["breadboard"].toString();
       }
-      function cbreadboard() { // craft breadboard CPU function
-        if (transistor >= cost["breadboard"] && material["breadboard"] > 0) {
-          transistor -= cost["breadboard"];
-          material["breadboard"] -= 1;
-          CPU["breadboard"] += 1;
+      function cbreadboard(key) { // craft breadboard CPU function
+        if (transistor >= cost[key] && material[key] > 0) {
+          transistor -= cost[key];
+          material[key] -= 1;
+          CPU[key] += 1;
         }
       }
-      function sbreadboard() { // sell breadboard CPU function
-        if (CPU["breadboard"] > 0) {
-          CPU["breadboard"] -= 1;
-          money += earn["breadboard"];
+      function sbreadboard(key) { // sell breadboard CPU function
+        if (CPU[key] > 0) {
+          CPU[key] -= 1;
+          money += earn[key];
         }
       }
-      function bbreadboard() { // buy breadboard function
-        if (money >= 10) {
-          money -= 10;
-          material["breadboard"] += 1;
+      function bbreadboard(key) { // buy breadboard function
+        if (money >= earn[key] / factor) { // "earn[key] / factor" temporary"
+          money -= earn[key] / factor; // "earn[key] / factor" temporary"
+          material[key] += 1;
         }
+      }
+      function unlock() {
+        return null;
       }
       var moneyIntervalID = setInterval(umoney, 1);
       var transistorIntervalID = setInterval(utransistor, 1);
