@@ -9,28 +9,28 @@
   <body>
     <noscript>Javascript is REQUIRED for this game.</noscript>
     <h1>Tecremental</h1>
-    <div id="main" style="float:left; margin:0; border-style: solid;">
-    <div id="obtain" style="float:left; margin:0; width:20%; border-style: solid;">
+    <div id="main" style="float:left; margin:0; height:100%; border-style: solid;">
+    <div id="obtain" style="float:left; margin:0; width:20%; border:5px solid black;">
       <h3>Obtain Resources</h3>
       <h3 id="money">Error</h3>
       <h3 id="transistor">Error</h3>
       <button class="button" onclick="itransistor();">Manufacture Transistor</button>
     </div>
-    <div id="craft" style="float:left; margin:0 ;width:20%; border-style: solid;">
+    <div id="craft" style="float:left; margin:0; width:20%; border:5px solid black;">
       <h3>Craft Items<h3>
       <h3 id="breadboard-cpu">Error</h3>
       <button class="button" onclick="cbreadboard();">Craft Breadboard CPU</button>
     </div>
-    <div id="sell" style="float:left; margin:0; width:20%; border-style: solid;">
+    <div id="sell" style="float:left; margin:0; width:20%; border:5px solid black;">
       <h3>Sell Items<h3>
       <button class="button" onclick="sbreadboard();">Sell Breadboard CPU</button>
     </div>
-    <div id="items" style="float:left; margin:0; width:20% border-style: solid;">
+    <div id="items" style="float:left; margin:0; width:20%; border:5px solid black;">
       <h3>Buy Items and Buildings</h3>
       <h3 id="breadboard">Error</h3>
       <button class="button" onclick="bbreadboard();">Buy Breadboard</button>
     </div>
-    <div id="unlocked" style="float:left; margin:0; width:20% border-style: solid;">
+    <div id="unlocked" style="float:left; margin:0; width:20% border:5px solid black;">
       <h3>Processors Unlocked</h3>
       <h3 id="processors">Error</h3>
       <button class="button" onclick="unlock();">Unlock 6502</button>
@@ -38,7 +38,7 @@
     </div>
     <script>
       var money = 100;
-      var factor = 10;  // "earn[key] / factor" temporary"
+      var factor = 10;  // "earn[key] / factor" temporary
       var transistor = 0;
       var CPU = new Object();
       CPU["breadboard"] = 0;
@@ -75,8 +75,8 @@
         }
       }
       function bbreadboard(key) { // buy breadboard function
-        if (money >= earn[key] / factor) { // "earn[key] / factor" temporary"
-          money -= earn[key] / factor; // "earn[key] / factor" temporary"
+        if (money >= earn[key] / factor) { // "earn[key] / factor" temporary
+          money -= earn[key] / factor; // "earn[key] / factor" temporary
           material[key] += 1;
         }
       }
