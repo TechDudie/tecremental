@@ -32,8 +32,8 @@
     </div>
     <div id="unlocked" style="float:left; margin:0; width:20%;">
       <h3>Processors Unlocked</h3>
-      <h3 id="processors">Error</h3>
-      <button class="button" onclick="unlock();">Unlock 6502</button>
+      <h3 id="processors">4004</h3>
+      <button id="unlock" class="button" onclick="unlock();">Unlock 8008</button>
     </div>
     </div>
     <script>
@@ -88,7 +88,9 @@
         }
       }
       function unlock() {
-        return null;
+        target_cpu = processors.shift();
+        document.getElementById("processors").innerHTML += " " + target_cpu.toString()
+        document.getElementById("unlock").innerHTML = processors[0].toString()
       }
       function tick() {
         return null;
