@@ -39,11 +39,12 @@
     <script>
       var money = 100;
       var factor = 10;  // "earn[key] / factor" temporary
+      var tick_time = 1000; // 1 second
       var transistor = 0;
       var CPU = new Object();
       CPU["breadboard"] = 0;
       var cost = new Object();
-      cost["breadboard"] = 100;
+      cost["breadboard"] = 100 
       var earn = new Object();
       earn["breadboard"] = 80;
       var material = new Object();
@@ -89,8 +90,12 @@
       function unlock() {
         return null;
       }
+      function tick() {
+        return null;
+      }
       var moneyIntervalID = setInterval(umoney, 1);
       var transistorIntervalID = setInterval(utransistor, 1);
+      var tickIntervalID = setInterval(tick, tick_time);
       var breadboardIntervalID = setInterval(ubreadboard, 1);
     </script>
   </body>
