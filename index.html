@@ -32,13 +32,15 @@
     </div>
     <div id="unlocked" style="float:left; margin:0; width:20%;">
       <h3>Processors Unlocked</h3>
-      <h3 id="processors">4004</h3>
+      <h3 id="processors"></h3>
       <button id="unlock" class="button" onclick="unlock();">Unlock 8008</button>
     </div>
     </div>
     <script>
       var money = 100;
       var factor = 10;  // "earn[key] / factor" temporary
+      var tech = 1;
+      var proc = 1
       var tick_time = 1000; // 1 second
       var transistor = 0;
       var CPU = new Object();
@@ -91,6 +93,8 @@
         target_cpu = processors.shift();
         document.getElementById("processors").innerHTML += " " + target_cpu.toString()
         document.getElementById("unlock").innerHTML = processors[0].toString()
+        proc += 1
+        tech *= 1 + (proc / 10)
       }
       function tick() {
         return null;
