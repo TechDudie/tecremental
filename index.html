@@ -93,7 +93,7 @@
       function unlock() {
         target_cpu = processors.shift();
         document.getElementById("processors").innerHTML += " " + target_cpu.toString()
-        document.getElementById("unlock").innerHTML = "Unlock " + processors[0].toString() + " (" + (100 * tech).toString() + ")"
+        document.getElementById("unlock").innerHTML = "Unlock " + processors[0].toString() + " (" + (Math.round(100 * tech)).toString() + ")"
         proc += 1
         tech *= 1 + (proc / 10)
       }
