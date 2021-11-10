@@ -39,7 +39,7 @@
     </div>
     <script>
       var money = 100;
-      var factor = 10;  // "earn[key] / factor" temporary
+      var factor = 1;  // "cost[key] / factor" temporary
       var tech = 1;
       var proc = 1
       var tick_time = 1000; // 1 second
@@ -47,9 +47,9 @@
       var CPU = new Object();
       CPU["breadboard"] = 0;
       var cost = new Object();
-      cost["breadboard"] = 100 
+      cost["breadboard"] = 80;
       var earn = new Object();
-      earn["breadboard"] = 80;
+      earn["breadboard"] = 100;
       var material = new Object();
       material["breadboard"] = 0;
       processors = [4004,8008,8080,5065,4040,6800,1000,6100,2650,1081,6502,1600,1802,"Z-80",9900,8085,14500,6809,8086,6801,8088,6800, // 1970s
@@ -99,8 +99,9 @@
         }
       }
       function bbreadboard(key) { // buy breadboard function
-        if (money >= earn[key] / factor) { // "earn[key] / factor" temporary
-          money -= earn[key] / factor; // "earn[key] / factor" temporary
+        var key = "breadboard" // temporary
+        if (money >= cost[key] / factor) { // "earn[key] / factor" temporary
+          money -= cost[key] / factor; // "earn[key] / factor" temporary
           material[key] += 1;
         }
       }
